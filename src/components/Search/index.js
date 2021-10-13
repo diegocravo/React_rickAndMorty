@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { characterName } from "../../redux/char";
+import { useSelector } from "react-redux";
 import CharCard from "../CharCard";
 import { Container } from "@material-ui/core";
 import Button from "@material-ui/core/Button";

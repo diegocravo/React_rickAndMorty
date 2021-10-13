@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import CircleIcon from "@mui/icons-material/Circle";
-import CloseIcon from "@mui/icons-material/Close";
 
 const useStyles = makeStyles({
   root: {
@@ -30,10 +29,10 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 500,
   bgcolor: "background.paper",
-  border: "2px solid #000",
+  // border: "2px solid #000",
   borderRadius: "5px",
   boxShadow: 24,
-  p: 4,
+  // p: 4,
 };
 
 export default function MediaCard(props) {
@@ -83,7 +82,7 @@ export default function MediaCard(props) {
               justifyContent: "center",
             }}
           >
-            <img src={props.chars.image} />
+            <img src={props.chars.image} alt={props.chars.name} />
           </div>
           <div style={{ marginLeft: "10px" }}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
@@ -97,15 +96,6 @@ export default function MediaCard(props) {
               Location - {props.chars.location.name}
             </Typography>
           </div>
-          {/* <div
-            style={{
-              display: "flex",
-              justifyContent: "end",
-              alignItems: "flex-start",
-            }}
-          >
-            <CloseIcon />
-          </div> */}
         </Box>
       </Modal>
     </Card>

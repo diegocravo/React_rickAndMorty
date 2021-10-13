@@ -12,7 +12,7 @@ function App() {
         <Switch>
           {/* <CharacterList /> */}
           <Route path="/search" component={Search} />
-          <Route path="/home" component={CharacterList} />
+          <Route path="/" component={CharacterList} />
         </Switch>
       </BrowserRouter>
     </div>
