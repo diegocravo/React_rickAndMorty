@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { characterName } from "../../redux/char";
 import CharCard from "../CharCard";
 import { Container } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
-export default function CharacterList() {
+export default function Search() {
+  const { value } = useSelector((state) => state.search);
+
   const [characterList, setCharacterList] = useState([]);
   const [pagination, setPagination] = useState([]);
 
@@ -35,7 +39,7 @@ export default function CharacterList() {
 
   useEffect(() => {
     axios
-      .get("https://rickandmortyapi.com/api/character/")
+      .get(`https://rickandmortyapi.com/api/character/?name=${value}`)
       .then((response) => {
         setCharacterList(response.data.results);
         setPagination(response.data.info);
@@ -43,10 +47,12 @@ export default function CharacterList() {
       .catch((error) => {
         console.log(error.message);
       });
-  }, []);
+  }, [value]);
 
   return (
-    <>
+    <div>
+      <h1 style={{ color: "white" }}>Showing Results for "{value}"</h1>
+
       <div style={{ marginTop: "20px" }}>
         <Container
           maxWidth="lg"
@@ -92,6 +98,6 @@ export default function CharacterList() {
           </Button>
         )}
       </div>
-    </>
+    </div>
   );
 }
